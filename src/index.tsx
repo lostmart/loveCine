@@ -8,13 +8,29 @@ import './index.css'
 
 // pages
 import Home from './pages/Home'
+import NotFound from './pages/404'
+
+//layout
+import Root from './root'
 
 import reportWebVitals from './reportWebVitals'
+import LegalTerms from './pages/Legal'
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Home />,
+		element: <Root />,
+		errorElement: <NotFound />,
+		children: [
+			{
+				path: '',
+				element: <Home />,
+			},
+			{
+				path: 'legal',
+				element: <LegalTerms />,
+			},
+		],
 	},
 ])
 
